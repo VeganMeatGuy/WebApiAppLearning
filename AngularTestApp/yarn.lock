@@ -1729,6 +1729,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ngrx/signals@npm:^20.1.0":
+  version: 20.1.0
+  resolution: "@ngrx/signals@npm:20.1.0"
+  dependencies:
+    tslib: "npm:^2.3.0"
+  peerDependencies:
+    "@angular/core": ^20.0.0
+    rxjs: ^6.5.3 || ^7.4.0
+  peerDependenciesMeta:
+    rxjs:
+      optional: true
+  checksum: 10c0/5ee2df30ac5c85540c035f40312f9f3af87388686b9dee086e834098af6bfd9221641e0304be66ebfb67ac377330565b6fbd8f820078ec3c5d014cdf18549390
+  languageName: node
+  linkType: hard
+
 "@npmcli/agent@npm:^3.0.0":
   version: 3.0.0
   resolution: "@npmcli/agent@npm:3.0.0"
@@ -2589,6 +2604,7 @@ __metadata:
     "@angular/router": "npm:^20.3.0"
     "@floating-ui/dom": "npm:^1.7.4"
     "@ng-bootstrap/ng-bootstrap": "npm:^19.0.1"
+    "@ngrx/signals": "npm:^20.1.0"
     "@popperjs/core": "npm:^2.11.8"
     "@types/jasmine": "npm:~5.1.0"
     bootstrap: "npm:^5.3.8"

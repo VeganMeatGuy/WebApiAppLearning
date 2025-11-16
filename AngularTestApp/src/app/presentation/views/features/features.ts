@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject} from '@angular/core';
+import { AppStore } from '../../../application/app.store';
 
 @Component({
   selector: 'app-features',
@@ -6,6 +7,19 @@ import { Component } from '@angular/core';
   templateUrl: './features.html',
   styleUrl: './features.scss',
 })
-export class Features {
 
-}
+export class Features implements OnInit {
+
+  private appStore = inject(AppStore);
+  counter = this.appStore.counter;
+  textest = this.appStore.test123;
+
+	ngOnInit(): void {
+    this.appStore.init();
+    	}
+
+  	async addOne() {
+        this.appStore.addOne(this.appStore.counter());
+		}
+	}
+
