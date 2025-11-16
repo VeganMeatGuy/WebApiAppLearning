@@ -9,13 +9,11 @@ import { AppStore } from '../../../application/app.store';
 })
 
 export class Features implements OnInit {
-
   private appStore = inject(AppStore);
   counter = this.appStore.counter;
   textest = this.appStore.test123;
 
 	ngOnInit(): void {
-    this.appStore.init();
     	}
 
   	async addOne() {

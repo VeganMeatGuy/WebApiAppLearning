@@ -1,6 +1,7 @@
-import { Component, signal, OnInit } from '@angular/core';
+import { Component, signal, OnInit, inject } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppStore } from '../application/app.store';
 
 
 @Component({
@@ -10,9 +11,10 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class App implements OnInit {
   protected readonly title = signal('Hofkammer');
+  private appStore = inject(AppStore);
 
   ngOnInit() {
-		
+		this.appStore.init();
   }
 }
 
