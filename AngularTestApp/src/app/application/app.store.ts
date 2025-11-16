@@ -1,5 +1,7 @@
+import { inject} from '@angular/core';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { Counter } from '../models/counter.model';
+import { CounterService } from '../data/counter.service';
 
 type AppState = {
 	counter: Counter | undefined;
@@ -7,8 +9,8 @@ type AppState = {
 };
 
 const initialState: AppState = {
-	counter: new Counter(),
-    test123: "moin du sack"
+	counter: undefined,
+    test123: ""
 };
 
 export const AppStore = signalStore(
@@ -17,17 +19,19 @@ export const AppStore = signalStore(
 	withMethods(
 		(
 			store,
+            counterService = inject(CounterService)
 		) => ({
-			async init(): Promise<void> {
-                patchState(store, {test123: "oder so"});
+			init(): void {
+                const counter3 = counterService.getCounter();
+                patchState(store, {counter: counter3, test123: "init geschafft"});
 			},
-			addOne(counter3: Counter | undefined): void {
-                if (counter3 === undefined)
+			addOne(counter: Counter | undefined): void {
+                if (counter === undefined)
                 {}
                 else 
                 {
-                    counter3.value = counter3.value + 1;
-				    patchState(store, {counter: counter3, test123: "geht"});
+                    const counterResult = counterService.addOneToCounter(counter);
+				    patchState(store, {counter: counterResult, test123: "geht"});
                 }
 				}
 		})
