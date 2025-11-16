@@ -30,6 +30,7 @@
     "@angular/router": "^20.3.0",
     "@floating-ui/dom": "^1.7.4",
     "@ng-bootstrap/ng-bootstrap": "^19.0.1",
+    "@ngrx/signals": "^20.1.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.8",
     "bootswatch": "^5.3.8",

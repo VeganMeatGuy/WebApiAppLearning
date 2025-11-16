@@ -1,6 +1,5 @@
-import { Component,OnInit} from '@angular/core';
-import { FormControl} from '@angular/forms';
-import { NgClass } from '@angular/common';
+import { Component, OnInit, inject} from '@angular/core';
+import { AppStore } from '../../../application/app.store';
 
 @Component({
   selector: 'app-features',
@@ -11,15 +10,16 @@ import { NgClass } from '@angular/common';
 
 export class Features implements OnInit {
 
-  counterValue = 0;
-  counterText = this.counterValue.toString
+  private appStore = inject(AppStore);
+  counter = this.appStore.counter;
+  textest = this.appStore.test123;
 
 	ngOnInit(): void {
-    this.counterValue = 1
+    this.appStore.init();
     	}
 
   	async addOne() {
-        this.counterValue = this.counterValue + 1;
+        this.appStore.addOne(this.appStore.counter());
 		}
 	}
 
