@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -8,7 +8,11 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [RouterModule, RouterOutlet ,NgbDropdownModule],
   templateUrl: './app.html'
 })
-export class App {
-  protected readonly title = signal('AngularTestApp');
+export class App implements OnInit {
+  protected readonly title = signal('Hofkammer');
+
+  ngOnInit() {
+		
+  }
 }
 
