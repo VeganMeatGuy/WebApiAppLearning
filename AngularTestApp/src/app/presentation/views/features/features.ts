@@ -19,5 +19,8 @@ export class Features implements OnInit {
   	async addOne() {
         this.appStore.addOne(this.appStore.counter());
 		}
+      	async removeOne() {
+        this.appStore.removeOne(this.appStore.counter());
+		}
 	}
 
