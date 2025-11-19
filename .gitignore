@@ -26,3 +26,56 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+## Build directories
+bin/
+obj/
+out/
+Debug/
+Release/
+
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.rsuser
+
+## NuGet
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+
+## Logs
+*.log
+logs/
+
+## .NET Core artifacts
+artifacts/
+project.lock.json
+project.fragment.lock.json
+
+## Publish output
+publish/
+dist/
+wwwroot/
+
+## Environment config
+.env
+*.pfx
+*.p12
+
+## Tooling
+*.tmp
+*.temp
+
+## Rider
+.idea/
+
+## VS Code
+.vscode/
+
+## OS Files
+# Windows
+Thumbs.db
+Desktop.ini
