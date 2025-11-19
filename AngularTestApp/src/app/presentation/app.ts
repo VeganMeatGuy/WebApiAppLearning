@@ -7,14 +7,14 @@ import { AppStore } from '../application/app.store';
 @Component({
   selector: 'app-root',
   imports: [RouterModule, RouterOutlet ,NgbDropdownModule],
-  templateUrl: './app.html'
+  templateUrl: './app.html',
 })
 export class App implements OnInit {
   protected readonly title = signal('Hofkammer');
   private appStore = inject(AppStore);
 
-  ngOnInit() {
-		this.appStore.init();
+  async ngOnInit() {
+		await this.appStore.init();
   }
 }
 
