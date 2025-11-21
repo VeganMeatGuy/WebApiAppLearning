@@ -16,8 +16,8 @@ jobs:
 
     defaults:
       run:
-        working-directory: AngularTestApp
-
+        working-directory: /AngularTestApp
+        
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
