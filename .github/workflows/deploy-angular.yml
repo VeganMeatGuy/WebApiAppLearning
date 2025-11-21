@@ -16,7 +16,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: /AngularTestApp
+        working-directory: WebApiAppLearning/AngularTestApp/AngularTestApp
         
     steps:
       - name: Checkout repository
