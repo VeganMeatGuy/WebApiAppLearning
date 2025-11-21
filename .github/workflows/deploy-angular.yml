@@ -34,7 +34,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          yarn install
+          yarn install --immutable
           
       - name: Build Angular App
         run: |
