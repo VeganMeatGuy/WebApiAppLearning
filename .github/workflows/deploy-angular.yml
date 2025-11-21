@@ -31,9 +31,12 @@ jobs:
         run: |
           npm install -g corepack
 
-      - name: Install Dependencies
+      - name: Update Yarn
         run: |
           yarn set version stable
+
+      - name: Install Yarn
+        run: |
           yarn install --mode=update-lockfile
           
       - name: Build Angular App
