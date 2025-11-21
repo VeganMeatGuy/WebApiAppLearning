@@ -39,7 +39,7 @@ jobs:
           
       - name: Build Angular App
         run: |
-          yarn build --configuration production --base-href "/WebApiAppLearning/"
+          ng build --configuration production --base-href "/WebApiAppLearning/"
           
       - name: List dist folder
         run: ls -R dist/AngularTestApp
