@@ -55,7 +55,7 @@ jobs:
       - name: Upload deployment artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: WebApiAppLearning/AngularTestApp/dist/AngularTestApp/browser
+          path: AngularTestApp/dist/AngularTestApp/browser
 
   deploy:
     environment:
