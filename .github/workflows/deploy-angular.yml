@@ -33,10 +33,10 @@ jobs:
       - name: Enable Corepackn And Yarn
         run: |
           npm install -g corepack
-          yarn init -2
+          yarn init -2 --mode=update-lockfile
           yarn set version stable
           yarn -v
-          yarn install
+          yarn install --mode=update-lockfile
         working-directory: AngularTestApp
           
       - name: Build Angular App
