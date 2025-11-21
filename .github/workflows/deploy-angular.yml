@@ -32,16 +32,12 @@ jobs:
       
       - name: Enable Corepackn And Yarn
         run: |
-          npm install corepack
-          corepack enable
-          corepack prepare yarn@4.11.0 --activate
-          yarn -v
-          yarn install --immutable
+          npm install
         working-directory: AngularTestApp
           
       - name: Build Angular App
         run: |
-          yarn build --configuration=production --base-href=/WebApiAppLearning/
+          ng build --configuration=production --base-href=/WebApiAppLearning/
         working-directory: AngularTestApp
         
       - name: List dist folder
