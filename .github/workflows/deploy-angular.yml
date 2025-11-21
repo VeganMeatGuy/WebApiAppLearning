@@ -1,0 +1,68 @@
+name: Deploy Angular App to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: AngularTestApp
+        
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: List dist folder
+        run: ls -R
+      
+      - name: Enable Corepackn And Yarn
+        run: |
+          npm install corepack
+          corepack enable
+          corepack prepare yarn@4.11.0 --activate
+          yarn -v
+          yarn install
+        working-directory: AngularTestApp
+          
+      - name: Build Angular App
+        run: |
+          yarn build --configuration=production --base-href=/WebApiAppLearning/
+        working-directory: AngularTestApp
+        
+      - name: List dist folder
+        run: ls -R dist/AngularTestApp
+
+      - name: Add 404.html for SPA routing
+        run: |
+          cp dist/AngularTestApp/browser/index.html dist/AngularTestApp/browser/404.html
+
+      - name: Upload deployment artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: WebApiAppLearning/AngularTestApp/dist/AngularTestApp/browser
+
+  deploy:
+    environment:
+      name: github-pages
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
