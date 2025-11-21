@@ -33,7 +33,8 @@ jobs:
       - name: Enable Corepackn And Yarn
         run: |
           npm install corepack
-          yarn set version stable
+          corepack enable
+          corepack prepare yarn@4.11.0 --activate
           yarn -v
           yarn install
         working-directory: AngularTestApp
