@@ -30,16 +30,15 @@ jobs:
       - name: Enable Corepack (Yarn)
         run: |
           npm install -g corepack
-          yarn init -2
 
       - name: Install Dependencies
         run: |
-          yarn install --mode=update-lockfile
           yarn set version stable
+          yarn install --mode=update-lockfile
           
       - name: Build Angular App
         run: |
-          ng build --configuration production --base-href "/WebApiAppLearning/"
+          yarn ng build --configuration production --base-href "/WebApiAppLearning/"
           
       - name: List dist folder
         run: ls -R dist/AngularTestApp
