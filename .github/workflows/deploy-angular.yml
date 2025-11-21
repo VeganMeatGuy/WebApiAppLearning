@@ -26,7 +26,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          
+
+      - name: List dist folder
+        run: ls -R
+      
       - name: Enable Corepack (Yarn)
         run: |
           npm install -g corepack
