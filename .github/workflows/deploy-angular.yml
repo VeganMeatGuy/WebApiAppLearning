@@ -35,12 +35,11 @@ jobs:
       - name: Install Dependencies
         run: |
           yarn install --mode=update-lockfile
-          yarn upgrade –latest
           yarn set version stable
           
       - name: Build Angular App
         run: |
-          ng build --configuration production --base-href "/WebApiAppLearning/"
+          yarn build --configuration production --base-href "/WebApiAppLearning/"
           
       - name: List dist folder
         run: ls -R dist/AngularTestApp
