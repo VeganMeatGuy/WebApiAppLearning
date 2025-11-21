@@ -38,7 +38,7 @@ jobs:
           
       - name: Build Angular App
         run: |
-          yarn dlx @angular/cli ng build --configuration production --base-href "/WebApiAppLearning/"
+          yarn dlx @angular/cli ng build --configuration=production --base-href=/WebApiAppLearning/
 
       - name: Add 404.html for SPA routing
         run: |
