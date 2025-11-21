@@ -30,9 +30,14 @@ jobs:
       - name: List dist folder
         run: ls -R
       
-      - name: Enable Corepackn And Yarn
+      - name: Install dependencies
         run: |
-          npm install
+          npm ci
+        working-directory: AngularTestApp
+
+      - name: Install Angular CLI globally
+        run: |
+          npm install -g @angular/cli
         working-directory: AngularTestApp
           
       - name: Build Angular App
