@@ -22,6 +22,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "20.3.10",
     "@angular/common": "^20.3.0",
     "@angular/compiler": "^20.3.0",
     "@angular/core": "^20.3.0",
@@ -34,6 +35,7 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.8",
     "bootswatch": "^5.3.8",
+    "corepack": "^0.34.4",
     "ngx-bootstrap": "^20.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
