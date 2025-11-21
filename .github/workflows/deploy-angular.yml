@@ -39,6 +39,9 @@ jobs:
       - name: Build Angular App
         run: |
           yarn dlx @angular/cli -- ng build --configuration=production --base-href=/WebApiAppLearning/
+          
+      - name: List dist folder
+        run: ls -R dist/AngularTestApp
 
       - name: Add 404.html for SPA routing
         run: |
