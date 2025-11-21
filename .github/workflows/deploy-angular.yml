@@ -1,4 +1,4 @@
-name: Deploy Angular App to GitHub Pages (Monorepo)
+name: Deploy Angular App to GitHub Pages
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: WebApiAppLearning/AngularTestApp
+        working-directory: AngularTestApp
 
     steps:
       - name: Checkout repository
