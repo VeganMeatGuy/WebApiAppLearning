@@ -16,7 +16,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: WebApiAppLearning/AngularTestApp/AngularTestApp
+        working-directory: AngularTestApp
         
     steps:
       - name: Checkout repository
@@ -44,11 +44,13 @@ jobs:
         run: |
           yarn install --mode=update-lockfile
           yarn -v
+        working-directory: AngularTestApp
           
       - name: Build Angular App
         run: |
           yarn ng build --configuration=production --base-href=/WebApiAppLearning/
-          
+        working-directory: AngularTestApp
+        
       - name: List dist folder
         run: ls -R dist/AngularTestApp
 
