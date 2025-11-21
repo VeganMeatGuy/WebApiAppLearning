@@ -34,7 +34,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          yarn install --immutable
+          yarn install --mode=update-lockfile
           
       - name: Build Angular App
         run: |
