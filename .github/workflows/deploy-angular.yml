@@ -26,12 +26,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
-      - name: Install dependencies
-          run: npm install corepack
-          run: yarn init -2
-          run: yarn install --frozen-lockfile
-
+          
+      - name: Enable Corepack (Yarn)
+        run: |
+          npm install -g corepack
+          yarn init -2
+          
       - name: Build Angular App
         run: |
           yarn ng build --configuration production --base-href "/WebApiAppLearning/"
