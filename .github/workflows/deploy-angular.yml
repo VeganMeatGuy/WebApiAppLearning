@@ -30,18 +30,19 @@ jobs:
       - name: List dist folder
         run: ls -R
       
-      - name: Enable Corepackn And Yarn
+      - name: Install dependencies
         run: |
-          npm install corepack
-          corepack enable
-          corepack prepare yarn@4.11.0 --activate
-          yarn -v
-          yarn install --immutable
+          npm ci
+        working-directory: AngularTestApp
+
+      - name: Install Angular CLI globally
+        run: |
+          npm install -g @angular/cli
         working-directory: AngularTestApp
           
       - name: Build Angular App
         run: |
-          yarn build --configuration=production --base-href=/WebApiAppLearning/
+          ng build --configuration=production --base-href=/WebApiAppLearning/
         working-directory: AngularTestApp
         
       - name: List dist folder
@@ -54,7 +55,7 @@ jobs:
       - name: Upload deployment artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: WebApiAppLearning/AngularTestApp/dist/AngularTestApp/browser
+          path: AngularTestApp/dist/AngularTestApp/browser
 
   deploy:
     environment:
