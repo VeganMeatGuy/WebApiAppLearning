@@ -9,7 +9,7 @@ import { firstValueFrom, } from 'rxjs';
 
 export class CounterService {
 
-    private api = 'https://localhost:7056/Counter';
+    private api = 'http://localhost:8080/Counter';
 
     constructor(private http: HttpClient) { }
 
