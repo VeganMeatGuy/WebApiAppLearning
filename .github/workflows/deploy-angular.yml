@@ -33,6 +33,8 @@ jobs:
       - name: Enable Corepack (Yarn)
         run: |
           npm install -g corepack
+          corepack enable
+          corepack prepare yarn@stable --activate
 
       - name: Update Yarn
         run: |
