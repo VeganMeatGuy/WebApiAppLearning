@@ -30,20 +30,13 @@ jobs:
       - name: List dist folder
         run: ls -R
       
-      - name: Enable Corepack (Yarn)
+      - name: Enable Corepackn And Yarn
         run: |
           npm install -g corepack
-          corepack enable
-          corepack prepare yarn@stable --activate
-
-      - name: Update Yarn
-        run: |
+          yarn init -2
           yarn set version stable
-
-      - name: Install Yarn
-        run: |
-          yarn install --mode=update-lockfile
           yarn -v
+          yarn install --mode=update-lockfile
         working-directory: AngularTestApp
           
       - name: Build Angular App
