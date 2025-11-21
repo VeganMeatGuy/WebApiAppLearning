@@ -16,7 +16,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: AngularTestApp
+        working-directory: WebApiAppLearning/AngularTestApp
 
     steps:
       - name: Checkout repository
@@ -38,7 +38,7 @@ jobs:
           
       - name: Build Angular App
         run: |
-          yarn dlx @angular/cli -- ng build --configuration=production --base-href=/WebApiAppLearning/
+          npx ng build --configuration=production --base-href=/WebApiAppLearning/
           
       - name: List dist folder
         run: ls -R dist/AngularTestApp
