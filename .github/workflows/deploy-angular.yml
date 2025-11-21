@@ -1,0 +1,55 @@
+name: Deploy Angular App to GitHub Pages (Monorepo)
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: WebApiAppLearning/AngularTestApp
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build Angular App
+        run: |
+          yarn ng build --configuration production --base-href "/WebApiAppLearning/"
+
+      - name: Add 404.html for SPA routing
+        run: |
+          cp dist/AngularTestApp/browser/index.html dist/AngularTestApp/browser/404.html
+
+      - name: Upload deployment artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: WebApiAppLearning/AngularTestApp/dist/AngularTestApp/browser
+
+  deploy:
+    environment:
+      name: github-pages
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
