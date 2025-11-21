@@ -57,6 +57,7 @@ project.fragment.lock.json
 
 ## Publish output
 publish/
+published/
 dist/
 wwwroot/
 
